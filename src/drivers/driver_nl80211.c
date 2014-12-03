@@ -12437,9 +12437,9 @@ const struct wpa_driver_ops wpa_driver_nl80211_ops = {
 	.get_noa = wpa_driver_get_p2p_noa,
 	.set_ap_wps_ie = wpa_driver_set_ap_wps_p2p_ie,
 #endif /* ANDROID_P2P */
-#ifdef ANDROID
+#if defined(ANDROID) && !defined(ANDROID_PLIB_STUB)
 	.driver_cmd = wpa_driver_nl80211_driver_cmd,
-#endif /* ANDROID */
+#endif /* ANDROID  && !ANDROID_PLIB_STUB */
 	.vendor_cmd = nl80211_vendor_cmd,
 	.set_qos_map = nl80211_set_qos_map,
 	.set_wowlan = nl80211_set_wowlan,
